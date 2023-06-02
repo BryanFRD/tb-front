@@ -42,15 +42,15 @@ const BookModal = ({modal, setModal}) => {
           <div className='flex gap-3 justify-between items-center'>
             <label className='text-lg'>Autheur: </label>
             <AsyncSelect
+              unstyled
               name='authorId'
               placeholder='Autheur...'
               className='w-48 text-left'
               classNames={{
-                control: () => 'bg-zinc-700',
-                input: () => 'text-zinc-100',
-                singleValue: () => 'text-zinc-400',
-                menu: () => 'bg-zinc-700 text-zinc-200',
-                option: ({isFocused, isSelected}) => (isFocused || isSelected) && 'bg-zinc-600'
+                control: () => 'p-1 border-b border-zinc-400 rounded-md focus-visible:outline-0 bg-zinc-700',
+                menu: () => 'bg-zinc-600 text-zinc-200 rounded mt-3 overflow-hidden',
+                option: ({isFocused, isSelected}) => `p-3 ${isSelected ? 'bg-zinc-800' : isFocused ? 'bg-zinc-700' : ''}`,
+                
               }}
               defaultValue={{value: modal?.data?.authorId, label: modal?.data?.authorName}}
               isClearable
